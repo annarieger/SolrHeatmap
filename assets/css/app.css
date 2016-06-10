@@ -9,30 +9,63 @@ html, body {
 }
 
 .map {
-  width: 50%;
-  height: 50%;
+  width: 100%;
+  max-height: 600px;
+  margin: 10px;
+  border: solid 1px #337AB7;
+}
+
+.map-row {
+  background-color: #F7F7F7;
 }
 
 .panel {
-  background-color: rgba(255, 255 ,255, 0);
+  background-color: #FFFFFF;
   box-shadow: none;
   -webkit-box-shadow: none;
 }
 
-#searchinput {
-  width: 75%
-}
-
-#fromToInputs{
-  padding-left: 15px;
+#fromToInputs {
   padding-top: 25px;
-  padding-bottom: 25px
+  padding-bottom: 10px;
 }
 
 #fromToSlider {
-  width: 75%;
-  padding-left: 15px;
   padding-bottom: 25px;
+}
+
+#searchinput {
+  padding-top: 25px;
+}
+
+#exportbtn {
+  margin-top: 10px;
+}
+
+#resultCounterText {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+#resultCounterText label {
+  font-weight: normal;
+}
+
+.searchbtn {
+  padding-left: 5px;
+}
+
+.center-form {
+    text-align:center;
+}
+
+.center-form form {
+    display:inline-block;
+}
+
+.center-form form label {
+  margin-left: 15px;
+  margin-right: 5px;
 }
 
 hr {

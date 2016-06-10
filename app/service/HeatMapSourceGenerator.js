@@ -9,7 +9,6 @@ angular
             term : "LayerWithinMap",
             boost : 80.0
           },
-
           LayerMatchesScale = {
             term : "LayerMatchesScale",
             boost : 70.0
@@ -23,10 +22,11 @@ angular
             boost : 30.0
           },
           searchObj = {
-            yearMin: 0,
+            yearMin: 2005,
             yearMax: 2016,
             searchText : ''
           };
+
 
         var methods = {
             getSolrQueryParameters: getSolrQueryParameters,
@@ -124,6 +124,9 @@ angular
             $http(config).
             success(function(data, status, headers, config) {
               MapService.createOrUpdateHeatMapLayer(data);
+              if (data.response && data.response.numFound) {
+                  $rootScope.$broadcast('setCounter', data.response.numFound);
+              }
             }).
             error(function(data, status, headers, config) {
               // hide the loading mask
