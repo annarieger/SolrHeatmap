@@ -3,10 +3,10 @@
  */
 angular
     .module('SolrHeatmapApp')
-    .controller('ResultCounter', ['Map', 'HeatMapSourceGenerator', '$scope', '$filter', '$timeout', function(MapService, HeatMapSourceGeneratorService, $scope, $filter, $timeout) {
+    .controller('ResultCounterCtrl', ['$scope', function($scope) {
 
         $scope.$on('setCounter', function(e, data){
-          if (data < 0) {
+          if (data < 1) {
               data = "No results found";
           }
             $scope.counter = data;

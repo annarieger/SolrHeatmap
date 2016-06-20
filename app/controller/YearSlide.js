@@ -3,7 +3,7 @@
  */
 angular
     .module('SolrHeatmapApp')
-    .controller('YearSlide', ['Map', 'HeatMapSourceGenerator', '$scope', '$filter', '$timeout', function(MapService, HeatMapSourceGeneratorService, $scope, $filter, $timeout) {
+    .controller('YearSlideCtrl', ['Map', 'HeatMapSourceGenerator', '$scope', '$filter', '$timeout', function(MapService, HeatMapSourceGeneratorService, $scope, $filter, $timeout) {
 
         $scope.ys = {
           years : {
@@ -11,8 +11,9 @@ angular
             max: HeatMapSourceGeneratorService.getSearchObj().yearMax,
             options: {
               floor: 2005,
-              ceil: 2016
-            //  showTicks: true
+              ceil: 2016,
+              noSwitching: true
+              //showTicks: true
             }
           }
         };
