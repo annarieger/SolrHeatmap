@@ -134,7 +134,7 @@ angular
          *
          */
         function getLayersBy(key, value) {
-            var layers = this.getMap().getLayers().getArray();
+            var layers = solrHeatmapApp.map.getLayers().getArray();
             return $filter('filter')(layers, function(layer) {
                 return layer.get(key) === value;
             });

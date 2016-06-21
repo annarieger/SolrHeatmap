@@ -1,11 +1,6 @@
 {
     "appConfig": {
-        "tweetsSearchBaseUrl": "http://54.158.101.33:8080/bopws/tweets/search?",
-        "tweetsExportBaseUrl": "http://54.158.101.33:8080/bopws/tweets/export?"
-    },
-    "bopwsConfig": {
-        "heatmapFacetLimit": 1000,
-        "csvDocsLimit": 1
+        "tweetsSearchBaseUrl": "http://54.158.101.33:8080/bopws/tweets/search?"
     },
     "mapConfig": {
         "renderer": "canvas",
