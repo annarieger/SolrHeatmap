@@ -65,7 +65,7 @@ angular
             if (extent && extentWgs84){
 
                 var minX = extentWgs84[1],
-                    maxX = extentWgs84[3]
+                    maxX = extentWgs84[3],
                     minY = wrapLon(extentWgs84[0]),
                     maxY = wrapLon(extentWgs84[2]);
 
@@ -86,6 +86,8 @@ angular
         function performSearch(){
             var config = {},
                 params = this.getTweetsSearchQueryParameters(this.getGeospatialFilter());
+                // add additional parameter for the soft maximum of the heatmap grid
+                params["a.hm.limit"] = solrHeatmapApp.bopwsConfig.heatmapFacetLimit;
 
             if (params) {
                 config = {
@@ -118,8 +120,8 @@ angular
         function startCsvExport(){
             var config = {},
                 params = this.getTweetsSearchQueryParameters(this.getGeospatialFilter());
-                // TODO make it configurable
-                params["d.docs.limit"] = 1;
+                // add additional parameter for the number of documents to return
+                params["d.docs.limit"] = solrHeatmapApp.bopwsConfig.csvDocsLimit;
 
             if (params) {
                 config = {
@@ -165,8 +167,7 @@ angular
             var params = {
                 "q.text": keyword,
                 "q.time": '['+ reqParamsUi.yearMin + '-01-01 TO ' + reqParamsUi.yearMax + '-01-01]',
-                "q.geo": '[' + bounds.minX + ',' + bounds.minY + ' TO ' + bounds.maxX + ',' + bounds.maxY + ']',
-                "a.hm.limit": 1000
+                "q.geo": '[' + bounds.minX + ',' + bounds.minY + ' TO ' + bounds.maxX + ',' + bounds.maxY + ']'
             };
 
            return params;
