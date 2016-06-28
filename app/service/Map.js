@@ -52,10 +52,6 @@ angular
                 view: new ol.View({
                     center: angular.isArray(viewConfig.center) ?
                             viewConfig.center : undefined,
-                    maxResolution: angular.isNumber(viewConfig.maxResolution) ?
-                            viewConfig.maxResolution : undefined,
-                    minResolution: angular.isNumber(viewConfig.minResolution) ?
-                            viewConfig.minResolution : undefined,
                     maxZoom: angular.isNumber(viewConfig.maxZoom) ?
                             viewConfig.maxZoom : undefined,
                     minZoom: angular.isNumber(viewConfig.minZoom) ?
@@ -134,7 +130,7 @@ angular
          *
          */
         function getLayersBy(key, value) {
-            var layers = solrHeatmapApp.map.getLayers().getArray();
+            var layers = this.getMap().getLayers().getArray();
             return $filter('filter')(layers, function(layer) {
                 return layer.get(key) === value;
             });
